@@ -43,7 +43,7 @@ activating on startup. Defaults to 0. >
 	let g:searchlight_disable_on_startup = 1
 <
 ==============================================================================
-3. Known Issues                                           *searchlight-issues*
+3. Known Issues                                            *searchlight-issues*
 
 When using any search command like: "*" (|star|), |#|, etc at the beginning of
 a match and it is the only match, then searchlight will not trigger.

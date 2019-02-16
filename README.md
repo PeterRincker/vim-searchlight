@@ -1,5 +1,7 @@
 # vim-searchlight
 
+Searchlight = Search + Highlight
+
 Vim-searchlight highlights Vim's current search match.
 
 ## Requirements
