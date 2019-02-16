@@ -1,0 +1,64 @@
+*searchlight.txt*   Highlight the current search match
+
+Author:  Peter Rincker                                    *searchlight-author*
+License: Same terms as Vim itself (see |license|)
+
+This plugin is only available if 'compatible' is not set.
+
+==============================================================================
+                                                               *searchlight*
+Searchlight = Search + Highlight
+Highlights the current search match.
+
+1. Commands		|searchlight-commands|
+2. Customization	|searchlight-customization|
+3. Issues		|searchlight-issues|
+
+==============================================================================
+1. Searchlight commands                             *searchlight-commands*
+
+                                                                *:Searchlight*
+:Searchlight 	Enable Searchlight
+:Searchlight!	Disable Searchlight
+
+==============================================================================
+2. Searchlight customization                       *searchlight-customization*
+
+                                                              *hl-Searchlight*
+Searchlight uses the |hl-Searchlight| group to highlight the current match.
+Defaults to |hl-ErrorMsg|. Example of setting to |hl-Incsearch|: >
+
+	highlight link Searchlight Incsearch
+<
+
+                                    *searchlight-update* *<Plug>(Searchlight)*
+Searchlight's highlighting can be updated via: >
+
+	:1Searchlight
+<
+                                            *g:searchlight_disable_on_startup*
+Setting |g:searchlight_disable_on_startup| to 1 will prevent Searchlight from
+activating on startup. Defaults to 0. >
+
+	let g:searchlight_disable_on_startup = 1
+<
+==============================================================================
+3. Known Issues                                           *searchlight-issues*
+
+When using any search command like: "*" (|star|), |#|, etc at the beginning of
+a match and it is the only match, then searchlight will not trigger.
+
+One solution would be to trigger an update with mappings like so: >
+
+	nnoremap <silent> * *:1Searchlight<cr>
+	nnoremap <silent> # #:1Searchlight<cr>
+<
+However, this goes against the goal of having no mappings. Sad panda
+
+==============================================================================
+Credits
+
+Thank you to both vim-searchhi & vim-searchant which inspired this plugin.
+
+
+ vim:tw=78:ts=8:ft=help:norl:
