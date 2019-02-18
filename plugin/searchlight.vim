@@ -85,11 +85,12 @@ function s:trigger()
   endif
 endfunction
 
+let s:modes = '^\%(n\|v\|V\|' . "\<c-v>" . '\)$'
 function! s:update()
   let s:timer = 0
   silent! call matchdelete(get(w:, 'searchlight_id', -1))
 
-  if !v:hlsearch || @/ == '' || !s:enable || mode() isnot 'n'
+  if !v:hlsearch || @/ == '' || !s:enable || mode() !~# s:modes
     return
   endif
 
