@@ -4,7 +4,7 @@ endif
 let g:loaded_searchlight = 1
 
 let s:z = v:version > 800 || (v:version == 704 && has('patch984')) ? 'z' : ''
-let s:enable = get(g:, 'searchlight_disable_on_startup', 1)
+let s:enable = !get(g:, 'searchlight_disable_on_startup', 0)
 
 highlight default link Searchlight ErrorMsg
 
