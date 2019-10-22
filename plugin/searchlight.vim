@@ -41,7 +41,6 @@ function s:start()
     else 
       autocmd CursorMoved,WinEnter,CmdlineLeave * call <SID>update()
     endif
-    autocmd CmdwinEnter * call <SID>clear(1)
     autocmd InsertLeave * call <SID>update()
     autocmd InsertEnter,WinLeave * call <SID>clear()
   augroup END
@@ -56,18 +55,7 @@ function s:stop()
 endfunction
 
 function s:clear(...)
-  if !a:0
-    silent! call matchdelete(get(w:, 'searchlight_id', -1))
-  else
-    let winnr = winnr('#')
-    let winid = win_getid(winnr)
-    let current = win_getid()
-    if winid
-      noautocmd call win_gotoid(winid)
-      silent! call matchdelete(get(w:, 'searchlight_id', -1))
-      noautocmd call win_gotoid(current)
-    endif
-  endif
+  silent! call matchdelete(get(w:, 'searchlight_id', -1))
 endfunction
 
 function s:mapping()
