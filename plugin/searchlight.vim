@@ -77,7 +77,7 @@ function! s:update()
   let s:timer = 0
   silent! call matchdelete(get(w:, 'searchlight_id', -1))
 
-  if !v:hlsearch || @/ == '' || !s:enable
+  if !v:hlsearch || @/ == '' || !s:enable || mode() == 'r'
     return
   endif
 
