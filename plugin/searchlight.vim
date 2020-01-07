@@ -42,7 +42,7 @@ function s:start()
       autocmd CursorMoved,WinEnter,CmdlineLeave * call <SID>update()
     endif
     autocmd InsertLeave * call <SID>update()
-    autocmd InsertEnter,WinLeave * call <SID>clear()
+    autocmd InsertEnter,WinLeave,CmdlineEnter * call <SID>clear()
   augroup END
   call s:trigger()
 endfunction
