@@ -4,6 +4,8 @@ Searchlight = Search + Highlight
 
 Vim-searchlight highlights Vim's current search match.
 
+![alt text](/example.gif)
+
 ## Requirements
 
 Searchlight requires Vim 8+ with timer support. It is tested on Vim 8.1.
