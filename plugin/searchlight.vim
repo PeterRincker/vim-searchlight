@@ -3,7 +3,6 @@ if exists('g:loaded_searchlight') || &cp || !exists('##CursorMoved') || !has_key
 endif
 let g:loaded_searchlight = 1
 
-let s:z = v:version > 800 || (v:version == 704 && has('patch984')) ? 'z' : ''
 let s:enable = !get(g:, 'searchlight_disable_on_startup', 0)
 
 highlight default link Searchlight ErrorMsg
@@ -95,7 +94,7 @@ function! s:update()
       return
     endif
 
-    let end = searchpos(@/, s:z . 'cen', bottom, timeout)
+    let end = searchpos(@/, 'cen', bottom, timeout)
     if end == [0, 0]
       return
     endif
