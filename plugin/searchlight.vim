@@ -94,6 +94,11 @@ function! s:update()
       return
     endif
 
+    let z_less_pat = substitute(@/, '\v%(%(\\\\)*\\)@<!%(\\z[se])', '', 'g')
+    if z_less_pat != @/
+      call search(z_less_pat, 'bc', top, timeout)
+    endif
+
     let end = searchpos(@/, 'cen', bottom, timeout)
     if end == [0, 0]
       return
