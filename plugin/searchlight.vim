@@ -104,7 +104,7 @@ function! s:update()
       return
     endif
 
-    let is_inside = pos[0] >= start[0] && pos[1] >= start[1] && pos[0] <= end[0] && pos[1] <= end[1]
+    let is_inside = s:cmp(pos, start) >= 0 && s:cmp(pos, end) <= 0
 
     if is_inside
       let pat = '\m\%' . start[0] . 'l\%' . start[1] . 'c'
@@ -116,6 +116,17 @@ function! s:update()
   finally
     call winrestview(view)
   endtry
+endfunction
+
+function! s:cmp(a, b)
+  for i in range(len(a:a))
+    if a:a[i] < a:b[i]
+      return -1
+    elseif a:a[i] > a:b[i]
+      return 1
+    endif
+  endfor
+  return 0
 endfunction
 
 if s:enable && &hlsearch
