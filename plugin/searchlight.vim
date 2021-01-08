@@ -89,7 +89,12 @@ function! s:update()
     let top = max([1, pos[0] - context])
     let bottom = pos[0] + context
 
-    let start = searchpos(@/, 'bc', top, timeout)
+    try
+      let start = searchpos(@/, 'bc', top, timeout)
+    catch /^Vim\%((\a\+)\)\=:E/
+      return
+    endtry
+
     if start == [0, 0]
       return
     endif
