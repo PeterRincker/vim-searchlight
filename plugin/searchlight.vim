@@ -74,7 +74,10 @@ endfunction
 
 function! s:update()
   let s:timer = 0
-  silent! call matchdelete(get(w:, 'searchlight_id', -1))
+  let id = get(w:, 'searchlight_id', -1)
+  if id != -1
+    silent! call matchdelete(id)
+  endif
 
   if !v:hlsearch || @/ == '' || !s:enable || mode() == 'r'
     return
