@@ -107,9 +107,17 @@ function! s:update()
       call search(z_less_pat, 'bc', top, timeout)
     endif
 
-    let end = searchpos(@/, 'cen', bottom, timeout)
-    if end == [0, 0]
-      return
+    " Search for zero-width match by forcing the start of the match (\zs) at the end of the pattern
+    let zero_width_search = searchpos(@/ . '\m\zs', 'cn', bottom, timeout)
+
+    if zero_width_search == start
+      " Found a zero-width match. The end is the same as start
+      let end = start
+    else
+      let end = searchpos(@/, 'cen', bottom, timeout)
+      if end == [0, 0]
+        return
+      endif
     endif
 
     let is_inside = s:cmp(pos, start) >= 0 && s:cmp(pos, end) <= 0
