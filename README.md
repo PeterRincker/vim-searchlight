@@ -10,6 +10,8 @@ Vim-searchlight highlights Vim's current search match.
 
 Searchlight requires Vim 8+ with timer support. It is tested on Vim 8.1.
 
+> Make sure you have `set hlsearch` on your ~/.vimrc
+
 ## Experimental
 
 Searchlight is an experiment. Your mileage my vary. Might not work with other plugins or your `vimrc`.
