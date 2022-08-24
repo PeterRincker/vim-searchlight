@@ -8,7 +8,8 @@ Vim-searchlight highlights Vim's current search match.
 
 ## Requirements
 
-Searchlight requires Vim 8+ with timer support. It is tested on Vim 8.1.
+Searchlight requires `'hsearch'` to be active and Vim 8+ with timer support. It is tested on Vim 8.1.
+
 
 ## Experimental
 
