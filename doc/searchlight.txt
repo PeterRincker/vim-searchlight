@@ -11,8 +11,9 @@ Searchlight = Search + Highlight
 Highlights the current search match.
 
 1. Commands		|searchlight-commands|
-2. Customization	|searchlight-customization|
-3. Issues		|searchlight-issues|
+2. Requirements		|searchlight-requirements|
+3. Customization	|searchlight-customization|
+4. Issues		|searchlight-issues|
 
 ==============================================================================
 1. Searchlight commands                             *searchlight-commands*
@@ -22,7 +23,15 @@ Highlights the current search match.
 :Searchlight!	Disable Searchlight
 
 ==============================================================================
-2. Searchlight customization                       *searchlight-customization*
+2. Searchlight requirements                       *searchlight-requirements*
+
+Searchlight requires |'hlsearch'| to be active and |+timer| support. >
+
+	set hlsearch
+<
+
+==============================================================================
+3. Searchlight customization                       *searchlight-customization*
 
                                                               *hl-Searchlight*
 Searchlight uses the |hl-Searchlight| group to highlight the current match.
@@ -43,7 +52,7 @@ activating on startup. Defaults to 0. >
 	let g:searchlight_disable_on_startup = 1
 <
 ==============================================================================
-3. Known Issues                                            *searchlight-issues*
+4. Known Issues                                            *searchlight-issues*
 
 When using any search command like: "*" (|star|), |#|, etc at the beginning of
 a match and it is the only match, then searchlight will not trigger.
