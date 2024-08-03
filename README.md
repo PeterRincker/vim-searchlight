@@ -6,6 +6,10 @@ Vim-searchlight highlights Vim's current search match.
 
 ![alt text](/example.gif)
 
+## CurSearch
+
+Vim 8.2.4724+ supports `CurSearch`, as well as NeoVim 0.10+. In this case the `Searchlight` highlight group is linked to `CurSearch` and the rest of the plugin is disabled.
+
 ## Requirements
 
 Searchlight requires `'hlsearch'` to be active and Vim 8+ with timer support. It is tested on Vim 8.1.

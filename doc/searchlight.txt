@@ -10,6 +10,9 @@ This plugin is only available if 'compatible' is not set.
 Searchlight = Search + Highlight
 Highlights the current search match.
 
+Vim 8.2.4724+ supports |hl-CurSearch|, as well as NeoVim 0.10+. In this case
+|hl-Searchlight| is a highlight link to |hl-CurSearch|.
+
 1. Commands		|searchlight-commands|
 2. Requirements		|searchlight-requirements|
 3. Customization	|searchlight-customization|

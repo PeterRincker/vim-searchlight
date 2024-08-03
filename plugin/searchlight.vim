@@ -7,6 +7,11 @@ let s:enable = !get(g:, 'searchlight_disable_on_startup', 0)
 
 highlight default link Searchlight ErrorMsg
 
+if has('patch-8.2.4724') || has('nvim-0.10')
+    highlight link CurSearch Searchlight
+    finish
+endif
+
 command! -bar -bang -range=-1 Searchlight
       \ if <count> == -1 |
       \   let s:enable = <bang>1 |
